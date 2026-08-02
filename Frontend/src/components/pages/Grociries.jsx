@@ -21,6 +21,7 @@ const Groceries = ({ cart, setCart, wishlist, setWishlist }) => {
             <section className="category-page">
                 <div className="category-header">
                     <p className="eyebrow">Groceries</p>
+                    <br />
                     <h1>Daily essentials for your home</h1>
                     <p>Find pantry favorites and everyday groceries delivered with convenience and great value.</p>
                 </div>
