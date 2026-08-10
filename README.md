@@ -18,8 +18,6 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 - 🛍️ Add to Cart
 - ❌ Remove from Cart
 - 💾 Cart Persistence using Local Storage
-- 📱 Responsive Design
-- ⚡ Fast Loading with Vite
 - 🌐 API Integration using DummyJSON
 
 ---
