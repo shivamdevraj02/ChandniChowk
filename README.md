@@ -181,8 +181,4 @@ This project is created for learning and portfolio purposes.
 
 ---
 
-## ⭐ Support
 
-If you like this project, please consider giving it a ⭐ on GitHub.
-
-Happy Coding! 🚀
