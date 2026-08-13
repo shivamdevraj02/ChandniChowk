@@ -13,12 +13,12 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 -  Electronics
 -  Groceries
 -  Browse Products
-- ⭐ Product Ratings
-- 💸 Discount Price Display
-- 🛍️ Add to Cart
-- ❌ Remove from Cart
-- 💾 Cart Persistence using Local Storage
-- 🌐 API Integration using DummyJSON
+-  Product Ratings
+-  Discount Price Display
+-  Add to Cart
+-  Remove from Cart
+-  Cart Persistence using Local Storage
+-  API Integration using DummyJSON
 
 ---
 
