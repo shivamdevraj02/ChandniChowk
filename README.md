@@ -9,10 +9,10 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 -  Home Page
 -  Men's Collection
 -  Women's Collection
-- 👶 Kids Collection
-- 📱 Electronics
-- 🛒 Groceries
-- 🔍 Browse Products
+-  Kids Collection
+-  Electronics
+-  Groceries
+-  Browse Products
 - ⭐ Product Ratings
 - 💸 Discount Price Display
 - 🛍️ Add to Cart
