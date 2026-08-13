@@ -6,7 +6,7 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 
 ## 🚀 Features
 
-- 🏠 Home Page
+-  Home Page
 - 👕 Men's Collection
 - 👗 Women's Collection
 - 👶 Kids Collection
