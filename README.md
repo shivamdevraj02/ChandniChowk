@@ -33,7 +33,7 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 - CSS3
 
 ### Backend
-- Node.js
+- Node.js  js
 - Express.js
 
 ### API
