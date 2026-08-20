@@ -127,9 +127,9 @@ Example:
 
 ## 🎯 Future Enhancements
 
-- ❤️ Wishlist
-- 🔐 User Authentication
-- 🔍 Product Search
+-  Wishlist
+-  User Authentication
+-  Product Search
 - 🎛️ Filters & Sorting
 - 💳 Checkout Page
 - 💰 Payment Gateway
