@@ -131,7 +131,7 @@ Example:
 -  User Authentication
 -  Product Search
 -  Filters & Sorting
-- 💳 Checkout Page
+-  Checkout Page
 - 💰 Payment Gateway
 - 📦 Order History
 - 🌙 Dark Mode
