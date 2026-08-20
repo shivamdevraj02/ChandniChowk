@@ -134,7 +134,7 @@ Example:
 -  Checkout Page
 -  Payment Gateway
 -  Order History
-- 🌙 Dark Mode
+-  Dark Mode
 - 👤 User Profile
 - ⭐ Product Reviews
 
