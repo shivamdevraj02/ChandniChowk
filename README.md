@@ -130,7 +130,7 @@ Example:
 -  Wishlist
 -  User Authentication
 -  Product Search
-- 🎛️ Filters & Sorting
+-  Filters & Sorting
 - 💳 Checkout Page
 - 💰 Payment Gateway
 - 📦 Order History
