@@ -135,7 +135,7 @@ Example:
 -  Payment Gateway
 -  Order History
 -  Dark Mode
-- 👤 User Profile
+-  User Profile
 - ⭐ Product Reviews
 
 ---
