@@ -133,7 +133,7 @@ Example:
 -  Filters & Sorting
 -  Checkout Page
 -  Payment Gateway
-- 📦 Order History
+-  Order History
 - 🌙 Dark Mode
 - 👤 User Profile
 - ⭐ Product Reviews
