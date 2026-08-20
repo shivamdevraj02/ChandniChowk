@@ -136,7 +136,7 @@ Example:
 -  Order History
 -  Dark Mode
 -  User Profile
-- ⭐ Product Reviews
+-  Product Reviews
 
 ---
 
