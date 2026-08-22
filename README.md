@@ -4,7 +4,7 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 
 ---
 
-## 🚀 Features
+## 🚀 Features:-
 
 -  Home Page
 -  Men's Collection
