@@ -169,7 +169,7 @@ git push origin feature-name
 
 ## 📄 License
 
-This project is created for learning and portfolio purposes.
+This project is created for learning and portfolio purposes..
 
 ---
 
