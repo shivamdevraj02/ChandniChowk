@@ -173,7 +173,7 @@ This project is created for learning and portfolio purposes..
 
 ---
 
-## 👨‍💻 Developer
+## 👨‍💻 Developer:-
 
 **Shivam Devraj**
 
