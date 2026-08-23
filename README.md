@@ -41,7 +41,7 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 
 ---
 
-## 📂 Project Structure
+## 📂 Project Structure:-
 
 ```
 ChandniChowk
