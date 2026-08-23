@@ -84,7 +84,7 @@ cd ChandniChowk
 
 ---
 
-### Frontend Setup
+### Frontend Setup:-
 
 ```bash
 cd Frontend
