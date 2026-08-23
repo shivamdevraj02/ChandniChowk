@@ -104,7 +104,7 @@ npm start
 
 ---
 
-## 🌐 API Used
+## 🌐 API Used:-
 
 This project uses the **DummyJSON API** for fetching product data.
 
