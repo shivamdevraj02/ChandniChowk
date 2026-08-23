@@ -68,7 +68,7 @@ ChandniChowk
 
 ---
 
-## ⚙️ Installation
+## ⚙️ Installation:-
 
 ### Clone the Repository
 
