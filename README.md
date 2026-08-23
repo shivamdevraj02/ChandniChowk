@@ -22,7 +22,7 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack:-
 
 ### Frontend
 - React.js
