@@ -167,7 +167,7 @@ git push origin feature-name
 
 ---
 
-## 📄 License:-
+## 📄 License
 
 This project is created for learning and portfolio purposes..
 
