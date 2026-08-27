@@ -94,7 +94,7 @@ npm run dev
 
 ---
 
-### Backend Setup:-
+### Backend Setup
 
 ```bash
 cd Backend
