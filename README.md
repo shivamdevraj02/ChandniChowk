@@ -139,6 +139,8 @@ Example:
 -  User Profile
 -  Product Reviews
 -  separate pages for items
+-  Ai suggestions for products
+-  
 
 ---
 
