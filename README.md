@@ -138,6 +138,7 @@ Example:
 -  Dark Mode
 -  User Profile
 -  Product Reviews
+-  separate pages for items
 
 ---
 
