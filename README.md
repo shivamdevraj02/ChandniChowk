@@ -31,7 +31,7 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 - React Router DOM
 - JavaScript (ES6+)
 - HTML5
-- CSS3
+- CSS
 
 ### Backend
 - Node.js  js
