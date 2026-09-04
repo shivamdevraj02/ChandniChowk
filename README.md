@@ -10,6 +10,7 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 -  Men's Collection
 -  Women's Collection
 -  Kids Collection
+-  Special festival collections
 -  Electronics
 -  Groceries
 -  Browse Products
