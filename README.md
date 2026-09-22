@@ -33,6 +33,7 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 - JavaScript (ES6+)
 - HTML5
 - CSS
+- Gsap
 
 ### Backend
 - Node.js  js
