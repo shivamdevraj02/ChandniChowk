@@ -20,7 +20,7 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 -  Remove from Cart
 -  Cart Persistence using Local Storage
 -  API Integration using DummyJSON
--  Add to favrouite
+
 
 ---
 
