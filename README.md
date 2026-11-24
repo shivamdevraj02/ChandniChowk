@@ -4,27 +4,27 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 
 ---
 
-## 🚀 Features:-
+## 🚀 Features
 
--  Home Page
--  Men's Collection
--  Women's Collection
--  Kids Collection
--  Special festival collections
--  Electronics
--  Groceries
--  Browse Products
--  Product Ratings
--  Discount Price Display
--  Add to Cart
--  Remove from Cart
--  Cart Persistence using Local Storage
--  API Integration using DummyJSON
-
+- 🏠 Home Page
+- 👕 Men's Collection
+- 👗 Women's Collection
+- 👶 Kids Collection
+- 📱 Electronics
+- 🛒 Groceries
+- 🔍 Browse Products
+- ⭐ Product Ratings
+- 💸 Discount Price Display
+- 🛍️ Add to Cart
+- ❌ Remove from Cart
+- 💾 Cart Persistence using Local Storage
+- 📱 Responsive Design
+- ⚡ Fast Loading with Vite
+- 🌐 API Integration using DummyJSON
 
 ---
 
-## 🛠️ Tech Stack:-
+## 🛠️ Tech Stack
 
 ### Frontend
 - React.js
@@ -32,11 +32,10 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 - React Router DOM
 - JavaScript (ES6+)
 - HTML5
-- CSS
-- Gsap
+- CSS3
 
 ### Backend
-- Node.js  js
+- Node.js
 - Express.js
 
 ### API
@@ -46,48 +45,25 @@ A modern **React-based E-Commerce Web Application** inspired by the vibrant shop
 
 ## 📂 Project Structure
 
-```
-ChandniChowk
-│
-├── Backend
-│   ├── middleware
-│   ├── model
-│   ├── routes
-│   ├── package.json
-│   └── App.js
-│
-├── Frontend
-│   ├── public
-│   ├── src
-│   │   ├── Components
-│   │   ├── Pages
-│   │   ├── Assets
-│   │   └── App.jsx
-│   ├── package.json
-│   └── vite.config.js
-│
+```text
+Chandnichowk/
+├── Frontend/             # Vite React storefront
+│   ├── src/components/   # Reusable UI and page components
+│   ├── src/data/         # Curated demo catalog
+│   └── .env.example
+├── Backend/              # Express authentication API
+│   ├── middleware/       # JWT middleware
+│   ├── model/            # Mongoose user model
+│   ├── routes/           # Auth routes
+│   └── .env.example
 └── README.md
 ```
 
 ---
 
-## ⚙️ Installation:-
+## ⚙️ Installation
 
-### Clone the Repository
-
-```bash
-git clone https://github.com/shivamdevraj02/ChandniChowk.git
-```
-
-### Navigate to the Project
-
-```bash
-cd ChandniChowk
-```
-
----
-
-### Frontend Setup
+### 1. Frontend
 
 ```bash
 cd Frontend
@@ -95,19 +71,21 @@ npm install
 npm run dev
 ```
 
----
+Open the local URL printed by Vite, typically `http://localhost:5173`.
 
-### Backend Setup
+### 2. Backend (required for account creation, sign-in, and payments)
 
 ```bash
 cd Backend
+copy .env.example .env
+# Add your MongoDB connection string, a long JWT secret, and Razorpay test keys to .env
 npm install
 npm start
 ```
 
 ---
 
-## 🌐 API Used:-
+## 🌐 API Used
 
 This project uses the **DummyJSON API** for fetching product data.
 
@@ -130,19 +108,16 @@ Example:
 
 ## 🎯 Future Enhancements
 
--  Wishlist
--  User Authentication
--  Product Search
--  Filters & Sorting
--  Checkout Page
--  Payment Gateway
--  Order History
--  Dark Mode
--  User Profile
--  Product Reviews
--  separate pages for items
--  Ai suggestions for products
--  
+- ❤️ Wishlist
+- 🔐 User Authentication
+- 🔍 Product Search
+- 🎛️ Filters & Sorting
+- 💳 Checkout Page
+- 💰 Payment Gateway
+- 📦 Order History
+- 🌙 Dark Mode
+- 👤 User Profile
+- ⭐ Product Reviews
 
 ---
 
@@ -175,11 +150,11 @@ git push origin feature-name
 
 ## 📄 License
 
-This project is created for learning and portfolio purposes..
+This project is created for learning and portfolio purposes.
 
 ---
 
-## 👨‍💻 Developer:-
+## 👨‍💻 Developer
 
 **Shivam Devraj**
 
@@ -187,4 +162,8 @@ This project is created for learning and portfolio purposes..
 
 ---
 
+## ⭐ Support
 
+If you like this project, please consider giving it a ⭐ on GitHub.
+
+Happy Coding! 🚀
