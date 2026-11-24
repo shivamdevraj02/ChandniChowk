@@ -1,37 +1,5 @@
-const About = () => {
-    return (
-        <section className="about-page">
-            <div className="about-hero">
-                <div>
-                    <p className="eyebrow">About Us</p>
-                    <h1>Professional Ecommerce with a Personal Touch</h1>
-                    <p>We bring premium products, fast service, and a simple shopping experience to customers who expect quality and convenience.</p>
-                </div>
-            </div>
-            <div className="about-grid">
-                <article className="about-card">
-                    <h2>Our Mission</h2>
-                    <p>To make online shopping effortless by offering curated selections, trusted brands, and reliable delivery for every lifestyle.</p>
-                </article>
-                <article className="about-card">
-                    <h2>Why Choose Us</h2>
-                    <ul>
-                        <li>Clear product details and smart recommendations</li>
-                        <li>Fast order processing with secure checkout</li>
-                        <li>Friendly support and easy returns</li>
-                    </ul>
-                </article>
-                <article className="about-card">
-                    <h2>Our Promise</h2>
-                    <p>We deliver transparency, consistent performance, and a customer-first experience so you can shop with confidence.</p>
-                </article>
-                <article className="about-card">
-                    <h2>Our Vision</h2>
-                    <p>To grow as a trusted online destination that balances thoughtful curation with helpful service and modern ecommerce design.</p>
-                </article>
-            </div>
-        </section>
-    )
-}
+import { Link } from 'react-router-dom';
 
-export default About;
+export default function About() {
+  return <><section className="story-hero"><div className="container"><p className="eyebrow">A note from Chandni Chowk</p><h1>For the love of<br /><em>beautifully made things.</em></h1><p>We’re building a softer, more curious way to shop—one that leaves room for the hands, places and stories behind every object.</p></div></section><section className="container story-intro"><div><p className="eyebrow">Our beginning</p><h2>Inspired by the oldest<br /><em>market in Delhi.</em></h2></div><div><p>Chandni Chowk has always been more than a market. It is a living archive of colour, craft, conversation and discovery. We bring that feeling online—without losing the serendipity.</p><p>Our collection moves slowly and intentionally, from makers we know and pieces we would want to keep ourselves.</p><Link className="button button-dark" to="/shop">Explore the collection <span>→</span></Link></div></section><section className="values-section"><div className="container values-grid">{[['01', 'Made with care', 'We champion makers who honour their materials, traditions and craft.'], ['02', 'Chosen slowly', 'Every product earns its place through quality, character and usefulness.'], ['03', 'Kept in circulation', 'Objects should stay meaningful long after the first unboxing.']].map(([number, title, text]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section><section className="container maker-callout"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85" alt="Colourful fabrics on display"/><div><p className="eyebrow">For makers, by admirers</p><h2>Every purchase is a <em>vote for craft.</em></h2><p>We work with small studios, family businesses and independent makers across India. Their work deserves a wider, kinder audience.</p><Link className="text-link" to="/shop">Shop with purpose <span>→</span></Link></div></section></>;
+}
