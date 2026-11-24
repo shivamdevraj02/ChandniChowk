@@ -24,6 +24,12 @@ function loadRazorpay() {
   return razorpayScriptPromise;
 }
 
+function getPaymentError(error) {
+  if (error.response?.data?.message) return error.response.data.message;
+  if (error.code === 'ERR_NETWORK') return 'Cannot reach the payment server. Make sure the Backend is running on port 30001.';
+  return error.message || 'Unable to start payment. Please try again.';
+}
+
 export default function Checkout({ cart, clearCart }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -82,7 +88,7 @@ export default function Checkout({ cart, clearCart }) {
       });
       checkout.open();
     } catch (paymentError) {
-      setError(paymentError.response?.data?.message || paymentError.message || 'Unable to start payment. Please try again.');
+      setError(getPaymentError(paymentError));
       setLoading(false);
     }
   };

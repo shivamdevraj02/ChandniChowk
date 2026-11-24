@@ -78,10 +78,12 @@ Open the local URL printed by Vite, typically `http://localhost:5173`.
 ```bash
 cd Backend
 copy .env.example .env
-# Add your MongoDB connection string, a long JWT secret, and Razorpay test keys to .env
+# Add Razorpay test keys to .env. MongoDB and JWT_SECRET are also needed for account sign-in.
 npm install
 npm start
 ```
+
+The API can run checkout without MongoDB/JWT configuration; account endpoints return an unavailable response until both are configured. Razorpay `KEY_ID` and `KEY_SECRET` are required for payments.
 
 ---
 
