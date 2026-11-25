@@ -143,7 +143,7 @@ export default function Checkout({ cart, clearCart }) {
         </button>
       </form>
       <aside className="order-summary">
-        <h2>Your order</h2>
+        <h3>Your order</h3>
         {cart.map((item) => {
           const product = productsById.get(item.id) || item;
           const price = productsById.get(item.id)?.price ?? item.price;
