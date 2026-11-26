@@ -17,6 +17,11 @@ const productPrices = {
 };
 const shippingThreshold = 1499;
 const shippingFee = 99;
+const demoOrders = new Map();
+
+function getPaymentMode() {
+  return process.env.PAYMENT_MODE || (process.env.NODE_ENV === 'production' ? 'razorpay' : 'demo');
+}
 
 function getRazorpay() {
   const { RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET } = process.env;
@@ -26,9 +31,6 @@ function getRazorpay() {
 
 router.post('/order', async (req, res, next) => {
   try {
-    const razorpay = getRazorpay();
-    if (!razorpay) return res.status(503).json({ message: 'Online payments are not configured.' });
-
     const { items, customer } = req.body;
     if (!Array.isArray(items) || items.length === 0 || items.length > Object.keys(productPrices).length) {
       return res.status(400).json({ message: 'Your bag is empty or invalid.' });
@@ -53,6 +55,22 @@ router.post('/order', async (req, res, next) => {
     }
 
     const amount = (subtotal + (subtotal >= shippingThreshold ? 0 : shippingFee)) * 100;
+    const mode = getPaymentMode();
+    if (mode === 'demo') {
+      const now = Date.now();
+      for (const [id, order] of demoOrders) {
+        if (now - order.createdAt > 15 * 60 * 1000) demoOrders.delete(id);
+      }
+      const orderId = `demo_order_${crypto.randomUUID()}`;
+      demoOrders.set(orderId, { amount, createdAt: now });
+      return res.status(201).json({ mode, orderId, amount, currency: 'INR' });
+    }
+    if (mode !== 'razorpay') {
+      return res.status(503).json({ message: 'Payment mode is invalid. Set PAYMENT_MODE to demo or razorpay.' });
+    }
+    const razorpay = getRazorpay();
+    if (!razorpay) return res.status(503).json({ message: 'Online payments are not configured. Set PAYMENT_MODE=demo for local testing.' });
+
     const notes = {
       customer_name: customer.name.trim().slice(0, 256),
       email: customer.email.trim().slice(0, 256),
@@ -75,10 +93,32 @@ router.post('/order', async (req, res, next) => {
       orderId: order.id,
       amount: order.amount,
       currency: order.currency,
+      mode,
     });
   } catch (error) {
     return next(error);
   }
+});
+
+router.post('/demo/complete', (req, res) => {
+  if (getPaymentMode() !== 'demo') {
+    return res.status(404).json({ message: 'Demo payments are not enabled.' });
+  }
+  const { orderId, outcome } = req.body;
+  if (typeof orderId !== 'string' || !['success', 'failure'].includes(outcome)) {
+    return res.status(400).json({ message: 'Demo payment details are invalid.' });
+  }
+  const order = demoOrders.get(orderId);
+  if (!order) return res.status(400).json({ message: 'This demo order is invalid or expired. Please try again.' });
+  if (Date.now() - order.createdAt > 15 * 60 * 1000) {
+    demoOrders.delete(orderId);
+    return res.status(400).json({ message: 'This demo order has expired. Please try again.' });
+  }
+  demoOrders.delete(orderId);
+  if (outcome === 'failure') {
+    return res.status(402).json({ message: 'Demo payment failed. No money was charged.' });
+  }
+  return res.json({ verified: true, paymentId: `demo_payment_${crypto.randomUUID()}`, amount: order.amount });
 });
 
 router.post('/verify', (req, res) => {

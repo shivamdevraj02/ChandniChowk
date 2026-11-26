@@ -78,12 +78,13 @@ Open the local URL printed by Vite, typically `http://localhost:5173`.
 ```bash
 cd Backend
 copy .env.example .env
-# Add Razorpay test keys to .env. MongoDB and JWT_SECRET are also needed for account sign-in.
+# PAYMENT_MODE=demo enables a no-charge local payment simulation.
+# Use PAYMENT_MODE=razorpay with Razorpay test keys for gateway testing.
 npm install
 npm start
 ```
 
-The API can run checkout without MongoDB/JWT configuration; account endpoints return an unavailable response until both are configured. Razorpay `KEY_ID` and `KEY_SECRET` are required for payments.
+The API can run checkout without MongoDB/JWT configuration; account endpoints return an unavailable response until both are configured. Local development defaults to the no-charge demo flow. For real gateway testing, set `PAYMENT_MODE=razorpay` and provide `RAZORPAY_KEY_ID` and `RAZORPAY_KEY_SECRET`. Production defaults to Razorpay mode; never use demo mode to accept real orders.
 
 ---
 

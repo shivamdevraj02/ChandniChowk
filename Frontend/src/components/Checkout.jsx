@@ -34,6 +34,7 @@ export default function Checkout({ cart, clearCart }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [completedPayment, setCompletedPayment] = useState(null);
+  const [demoOrder, setDemoOrder] = useState(null);
   const subtotal = cart.reduce((sum, item) => sum + (productsById.get(item.id)?.price ?? item.price) * item.quantity, 0);
   const shipping = subtotal >= 1499 ? 0 : 99;
   const total = subtotal + shipping;
@@ -58,6 +59,11 @@ export default function Checkout({ cart, clearCart }) {
         items: cart.map(({ id, quantity }) => ({ id, quantity })),
         customer,
       });
+      if (order.mode === 'demo') {
+        setDemoOrder(order);
+        setLoading(false);
+        return;
+      }
       await loadRazorpay();
 
       const checkout = new window.Razorpay({
@@ -70,7 +76,7 @@ export default function Checkout({ cart, clearCart }) {
         handler: async (payment) => {
           try {
             const { data } = await axios.post(`${apiUrl}/api/payments/verify`, payment);
-            setCompletedPayment(data.paymentId);
+            setCompletedPayment({ paymentId: data.paymentId, demo: false });
             clearCart();
           } catch (verificationError) {
             setError(verificationError.response?.data?.message || 'Payment was received but could not be verified. Please contact support before trying again.');
@@ -93,14 +99,33 @@ export default function Checkout({ cart, clearCart }) {
     }
   };
 
+  const completeDemoPayment = async (outcome) => {
+    if (!demoOrder) return;
+    setLoading(true);
+    setError('');
+    try {
+      const { data } = await axios.post(`${apiUrl}/api/payments/demo/complete`, {
+        orderId: demoOrder.orderId,
+        outcome,
+      });
+      setCompletedPayment({ paymentId: data.paymentId, demo: true });
+      clearCart();
+    } catch (paymentError) {
+      setDemoOrder(null);
+      setError(getPaymentError(paymentError));
+    } finally {
+      setLoading(false);
+    }
+  };
+
   if (completedPayment) {
     return <section className="container checkout-page page-space">
       <div className="payment-success-backdrop" role="dialog" aria-modal="true" aria-labelledby="payment-success-title">
         <div className="payment-success">
           <span className="payment-success-icon" aria-hidden="true">✓</span>
-          <p className="eyebrow">Payment confirmed</p>
+          <p className="eyebrow">{completedPayment.demo ? 'Demo payment' : 'Payment confirmed'}</p>
           <h1 id="payment-success-title">Thank you for your order.</h1>
-          <p>Your payment was successful. Payment ID: <strong>{completedPayment}</strong></p>
+          <p>{completedPayment.demo ? 'This was a payment simulation; no money was charged.' : 'Your payment was successful.'} Payment ID: <strong>{completedPayment.paymentId}</strong></p>
           <Link className="button button-saffron" to="/shop">Continue shopping <span>→</span></Link>
         </div>
       </div>
@@ -110,7 +135,7 @@ export default function Checkout({ cart, clearCart }) {
   if (!cart.length) return <section className="empty-state page-space"><h1>Your bag is ready when you are.</h1><Link className="button button-dark" to="/shop">Go shopping</Link></section>;
 
   return <section className="container checkout-page page-space">
-    <div className="page-heading"><p className="eyebrow">Almost there</p><h1>Checkout</h1><p>Complete your details and pay securely with Razorpay.</p></div>
+    <div className="page-heading"><p className="eyebrow">Almost there</p><h1>Checkout</h1><p>Complete your details to continue to online or demo checkout.</p></div>
     <div className="checkout-layout">
       <form className="checkout-form" onSubmit={startPayment}>
         <div className="form-section">
@@ -135,11 +160,20 @@ export default function Checkout({ cart, clearCart }) {
         </div>
         <div className="form-section">
           <h2>Payment</h2>
-          <div className="payment-choice"><span><b>Razorpay secure checkout</b><small>Pay by UPI, card, netbanking or wallet.</small></span></div>
+          <div className="payment-choice"><span><b>Online checkout</b><small>Razorpay when configured. Demo mode never charges money.</small></span></div>
+          {demoOrder && <div className="demo-payment" role="group" aria-label="Demo payment options">
+            <p><strong>Demo payment</strong> · {money(demoOrder.amount / 100)} · No money will be charged.</p>
+            <button className="button button-saffron" disabled={loading} onClick={() => completeDemoPayment('success')} type="button">
+              {loading ? 'Processing…' : 'Simulate successful payment'}
+            </button>
+            <button className="button demo-payment-fail" disabled={loading} onClick={() => completeDemoPayment('failure')} type="button">
+              Simulate failed payment
+            </button>
+          </div>}
         </div>
         {error && <p className="form-status" role="alert">{error}</p>}
         <button className="button button-saffron" disabled={loading} type="submit">
-          {loading ? 'Connecting to Razorpay…' : <>Pay {money(total)} <span>→</span></>}
+          {loading ? 'Preparing payment…' : <>Continue to payment · {money(total)} <span>→</span></>}
         </button>
       </form>
       <aside className="order-summary">
