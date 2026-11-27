@@ -104,7 +104,8 @@ Add screenshots of your application here.
 
 Example:
 
-<img width="1885" height="930" alt="image" src="https://github.com/user-attachments/assets/1912dc80-d772-42c4-bec4-cc764330de1f" />
+<img width="1885" height="930" alt="image" src="<img width="1877" height="926" alt="image" src="https://github.com/user-attachments/assets/24160e45-efa2-43e0-b993-1da6aa663b3c" />
+" />
 
 
 ---
